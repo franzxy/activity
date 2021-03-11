@@ -1,0 +1,10 @@
+query allActivities {
+    queryActivity {
+        name
+        tags {
+            name
+        }
+        start
+        end
+    }
+}

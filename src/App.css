@@ -1,0 +1,115 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	transition: box-shadow 0.2s linear !important;
+}
+
+*:focus{
+	box-shadow: 0 0 0 2px dodgerblue;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.big-gap {
+  gap: 40px;
+}
+
+.gap {
+  gap: 20px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.App {
+  padding: 40px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+form {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  align-self: flex-start;
+  margin-bottom: 10px;
+}
+
+input {
+  border: none;
+  background: lightgray;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 20px;
+}
+
+select {
+  border: none;
+  background: lightgray;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding: 10px;
+}
+
+option {
+  background: dimgray;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 20px;
+  margin-bottom: 10px;
+}
+
+option:last-of-type {
+  margin-bottom: 0;
+}
+
+option:checked {
+  background: dodgerblue;
+}
+
+button {
+  background: dodgerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  height: 40px;
+  padding: 0 20px;
+}
+
+.rightcorners {
+	border-bottom-right-radius: 0px !important;
+	border-top-right-radius: 0px !important;
+}
+
+.leftcorners {
+	border-top-left-radius: 0px !important;
+	border-bottom-left-radius: 0px !important;
+}
