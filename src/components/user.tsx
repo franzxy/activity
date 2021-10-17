@@ -39,14 +39,20 @@ const User = () => {
     if (currentUser) return (
         <>
             <Redirect to="/activities" />
-            <button onClick={() => signOut(auth)}>Sign Out</button>
+            <div className="user">
+                <img className="user-img" src={currentUser.photoURL} />
+                <p className="user-name">Hello, <b>{currentUser.displayName}</b></p>
+                <button className="button" onClick={() => signOut(auth)}>Sign Out</button>
+            </div>
         </>
     )
     
     return (
         <div>
             <Redirect to="/" />
-            <button onClick={() =>  signInWithRedirect(auth, provider)}>Sign In</button>
+            <div className="user">
+                <button className="button" onClick={() =>  signInWithRedirect(auth, provider)}>Sign In</button>
+            </div>
         </div>
     )
 }
