@@ -1,15 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Header } from "./components/header"
-import { Activities } from "./components/activities"
-import './App.css';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-function App() {
+import User from './components/user';
+import Landing from './pages/landing';
+import Activities from './pages/activities';
+
+const App = () => {
+  
   return (
-    <div className="App">
-      {Header()}
-      {Activities()}
-    </div>
+    <Router>
+      <User />
+      <Switch>
+        <Route exact path="/">
+          <Landing />
+        </Route>
+        <Route path="/activities">
+          <Activities />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
