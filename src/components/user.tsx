@@ -14,7 +14,6 @@ const User = () => {
 
             // The signed-in user info.
             // const user = result.user;
-            return <Redirect to="/activities" />
         })
         .catch((error) => {
             // Handle Errors here.
