@@ -1,23 +1,32 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { useAuthState } from 'react-firebase-hooks/auth';
 
-import User from './components/user';
+import { auth } from './services/firebase';
 import Landing from './pages/landing';
 import Activities from './pages/activities';
+import Navigation from './components/navigation';
+import Loading from './components/loading';
 
 const App = () => {
   
+  const [user, loading, error] = useAuthState(auth);
+
   return (
     <Router>
-      <User />
-      <Switch>
-        <Route exact path="/">
-          <Landing />
-        </Route>
-        <Route path="/activities">
-          <Activities />
-        </Route>
-      </Switch>
+      <Navigation />
+      <div className="content">
+        {user && <Redirect to="/activities" />}
+        <Switch>
+          {loading && <Loading />}
+          <Route exact path="/">
+            <Landing />
+          </Route>
+          <Route path="/activities">
+            {user ? <Activities /> : <Redirect to="/" />}
+          </Route>
+        </Switch>
+      </div>
     </Router>
   );
 }
