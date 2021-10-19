@@ -21,8 +21,8 @@ const User = () => {
     return (
         <div className="user">
             {loading ? <Loading /> : user && <>
-                <p className="user-name">Hello, <b>{user.displayName}</b></p>
                 <Link to="/activities" className="link">
+                    <p className="user-name">Hello, <b>{user.displayName}</b></p>
                     <img className="user-img" src={user.photoURL} />
                 </Link>
             </>}
