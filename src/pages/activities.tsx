@@ -3,6 +3,7 @@ import { collection, query, where, getDocs, doc, getDoc, addDoc, setDoc, QuerySn
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, db } from '../services/firebase';
+import Activity from '../components/activity';
 
 const Activities = () => {
 
@@ -47,22 +48,12 @@ const Activities = () => {
     })
   }, [])
 
-  console.log(activities && activities[0].data())
-
   return (
     <div className="activities">
-      <button className="button active">Add Activity</button>
-      <ol className="activities-list">
-        <>
-        {activities ? activities.map(activity => {
-          const data = activity.data()
-          return <li>
-            <div>{data.start.toDate().toLocaleString()}</div>
-            <div>{data.end.toDate().toLocaleString()}</div>
-          </li>
-        }) : <div>no activities jet</div>}
-        </>
-      </ol>
+      <button className="add-activity button active">Add Activity</button>
+      <div className="activities-list">
+        {activities ? activities.map(activity => <Activity activity={activity.data()} />) : <div>No Activities</div>}
+      </div>
     </div>
   )
 };

@@ -1,12 +1,6 @@
 * {
 	margin: 0px;
 	padding: 0px;
-	outline: none;
-	transition: box-shadow 0.2s linear !important;
-}
-
-*:focus{
-	box-shadow: 0 0 0 2px darkblue;
 }
 
 html {
@@ -24,7 +18,7 @@ body {
   height: 100%;
   min-width: 100%;
   width: 100%;
-  background-color: black;
+  background-color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -36,12 +30,12 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
-  margin: 20px;
-  min-height: calc(100% - 40px);
-  height: calc(100% - 40px);
-  min-width: calc(100% - 40px);
-  width: calc(100% - 40px);
+  gap: 40px;
+  margin: 40px;
+  min-height: calc(100% - 80px);
+  height: calc(100% - 80px);
+  min-width: calc(100% - 80px);
+  width: calc(100% - 80px);
 }
 
 code {
@@ -55,11 +49,11 @@ code {
 	align-items: center;
 	text-align: center;
 	border: none;
-	background-color: dodgerblue;
 	padding: 0 20px;
 	height: 40px;
 	border-radius: 20px;
-	color: white;
+  color: black;
+  background-color: skyblue;
 	text-decoration: none;
   font-size: medium;
   font-weight: bolder;
@@ -67,7 +61,8 @@ code {
 }
 
   .button:hover {
-	  background-color: darkblue;
+    color: white;
+    background-color: dodgerblue;
   }
 
   .active {
@@ -138,6 +133,7 @@ code {
   background-color: white;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 12px 12px 24px #d9d9d9, -12px -12px 24px #ffffff;
 }
 
   .logo {
@@ -172,6 +168,7 @@ code {
   padding: 20px;
   border-radius: 20px;
   background-color: white;
+  box-shadow: 12px 12px 24px #d9d9d9, -12px -12px 24px #ffffff;
 }
 
   .landing {
@@ -196,3 +193,26 @@ code {
     width: 100%;
     gap: 20px;
   }
+
+    .add-activity {
+      height: 80px;
+    }
+
+    .activities-list {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+      gap: 20px;      
+    }
+
+    .activity {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 10px 10px 30px #bebebe,
+      -10px -10px 30px #ffffff;
+    }
