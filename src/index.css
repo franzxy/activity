@@ -209,10 +209,26 @@ code {
     .activity {
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      width: calc(100% - 40px);
       gap: 20px;
       border-radius: 20px;
       padding: 20px;
       box-shadow: 10px 10px 30px #bebebe,
       -10px -10px 30px #ffffff;
     }
+
+      .activity-time{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .activity-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+      }

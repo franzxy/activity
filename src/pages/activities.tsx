@@ -52,7 +52,7 @@ const Activities = () => {
     <div className="activities">
       <button className="add-activity button active">Add Activity</button>
       <div className="activities-list">
-        {activities ? activities.map(activity => <Activity activity={activity.data()} />) : <div>No Activities</div>}
+        {activities ? activities.map(activity => <Activity activity={activity.data()} />) : <div className="activity"><b>No activities yet, uwu shouwd add owne... 👉👈</b></div>}
       </div>
     </div>
   )
