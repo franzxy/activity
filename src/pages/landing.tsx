@@ -3,8 +3,8 @@ import React from 'react';
 const Landing = () => {
   
   return (
-    <div>
-      landing
+    <div className="landing">
+      <iframe className="iframe" src="https://toggl.com/" />
     </div>
   )
 };
