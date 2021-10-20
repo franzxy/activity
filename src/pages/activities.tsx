@@ -35,9 +35,10 @@ const Activities = () => {
             })*/
           } else {
             // has activities sub collection
-            onSnapshot(q, (querySnapshot) => {
+            const snap = onSnapshot(q, (querySnapshot) => {
               setActivities(querySnapshot.docs)
             });
+            if(!user) snap()
           }        
         })
       } else {
@@ -61,9 +62,10 @@ const Activities = () => {
             })*/
           } else {
             // has activities sub collection
-            onSnapshot(q, (querySnapshot) => {
+            const snap = onSnapshot(q, (querySnapshot) => {
               setActivities(querySnapshot.docs)
             });
+            if(!user) snap()
           }        
         })
       } else {
