@@ -1,1 +1,2 @@
-# Nothing much to see here
+# Time tracking 
+> Using HypeScript, React, Firebase, Firestore
