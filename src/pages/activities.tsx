@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, where, getDocs, doc, getDoc, addDoc, setDoc, QuerySnapshot, QueryDocumentSnapshot, Timestamp } from "firebase/firestore";
+import { collection, query, where, getDocs, doc, getDoc, addDoc, setDoc, QueryDocumentSnapshot, DocumentSnapshot, Timestamp, onSnapshot } from "firebase/firestore";
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { auth, db } from '../services/firebase';
@@ -21,6 +21,33 @@ const Activities = () => {
     }
   })
   */
+
+  const getActivities = () => {
+    const docRef = doc(db, "users", user && user.uid);
+    getDoc(docRef).then((res) => {
+      if(res.exists()) {
+        const q = query(collection(db, "users/"+(user && user.uid)+"/activities"))
+        getDocs(q).then((res) => {
+          if(res.empty) {
+            // doesn't have activities sub collection
+            /*addDoc(collection(db, "users/"+user.uid+"/activities"), {
+              test: "test"
+            })*/
+          } else {
+            // has activities sub collection
+            const snap = onSnapshot(q, (querySnapshot) => {
+              setActivities(querySnapshot.docs)
+            });
+            if(!user) snap()
+          }        
+        })
+      } else {
+        setDoc(doc(db, "users", user && user.uid), {
+          // further data to write to db
+        })
+      }
+    })
+  }
  
   useEffect(() => {
     const docRef = doc(db, "users", user && user.uid);
@@ -30,14 +57,15 @@ const Activities = () => {
         getDocs(q).then((res) => {
           if(res.empty) {
             // doesn't have activities sub collection
-            console.log("doesn't have activs collection")
             /*addDoc(collection(db, "users/"+user.uid+"/activities"), {
               test: "test"
             })*/
           } else {
             // has activities sub collection
-            console.log("has activs collection")
-            setActivities(res.docs)
+            const snap = onSnapshot(q, (querySnapshot) => {
+              setActivities(querySnapshot.docs)
+            });
+            if(!user) snap()
           }        
         })
       } else {
@@ -50,9 +78,16 @@ const Activities = () => {
 
   return (
     <div className="activities">
-      <button className="add-activity button active">Add Activity</button>
+      <button onClick={() => addDoc(collection(db, "users/"+user.uid+"/activities"), {
+          start: Timestamp.now(),
+          end: Timestamp.now()
+        }).then(() => {
+          !activities && getActivities()
+        })} className="add-activity button active">
+        Add Activity
+      </button>
       <div className="activities-list">
-        {activities ? activities.map(activity => <Activity activity={activity.data()} />) : <div className="activity"><b>No activities yet, uwu shouwd add owne... 👉👈</b></div>}
+        {activities ? activities.map((activity, id) => <Activity key={id} activity={{id: activity.id, activity: activity.data()}} />) : <div className="activity"><b>No activities yet, uwu shouwd add owne... 👉👈</b></div>}
       </div>
     </div>
   )

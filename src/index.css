@@ -205,16 +205,17 @@ i {
   .landing {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
     height: 100%;
     width: 100%;
     gap: 20px;
   }
 
-    .iframe {
-      border: none;
-      border-radius: 20px;
+    .time {
       height: 100%;
-      width: 100%;
+      border-radius: 20px;
     }
 
   .activities {

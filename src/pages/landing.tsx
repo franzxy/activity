@@ -4,7 +4,7 @@ const Landing = () => {
   
   return (
     <div className="landing">
-      <iframe className="iframe" src="https://toggl.com/" />
+      <img className="time" src="/time.png" />
     </div>
   )
 };
