@@ -29,7 +29,6 @@ yarn-debug.log*
 yarn-error.log*
 
 yarn.lock
-tsconfig.json
 firestore.rules
 firestore.indexes.json
 firebase.json
