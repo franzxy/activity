@@ -4,7 +4,10 @@ const Landing = () => {
   
   return (
     <div className="landing">
-      <img className="time" src="/time.png" />
+      <video className="time-video" controls autoPlay loop muted>
+        <source src="/time.mp4" type="audio/ogg" />
+        Your browser does not support the audio element.
+      </video>
     </div>
   )
 };
