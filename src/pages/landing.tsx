@@ -4,7 +4,7 @@ const Landing = () => {
   
   return (
     <div className="landing">
-      <img className="time" src="/time.png" />
+      <img className="time" src="/time.gif" />
     </div>
   )
 };
